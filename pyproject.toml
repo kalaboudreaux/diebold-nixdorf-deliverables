@@ -1,0 +1,11 @@
+[project]
+name = "diebold-nixdorf-deliverables"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "snowflake-connector-python>=3.3.0",
+    "streamlit[snowflake]>=1.54.0",
+    "plotly>=5.0.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+]

@@ -1,0 +1,22 @@
+definition_version: 2
+entities:
+  diebold_nixdorf_deliverables:
+    type: streamlit
+    identifier:
+      name: DIEBOLD_NIXDORF_DELIVERABLES
+      database: USER$KBOUDREAUX
+      schema: PUBLIC
+    query_warehouse: ACR_WH
+    runtime_name: SYSTEM$ST_CONTAINER_RUNTIME_PY3_11
+    compute_pool: SE_ENABLEMENT_POOL
+    external_access_integrations:
+      - PYPI_ACCESS_INTEGRATION
+    main_file: streamlit_app.py
+    artifacts:
+      - streamlit_app.py
+      - executive_brief.py
+      - architecture.py
+      - personal_video.py
+      - interactive_demo.py
+      - launcher.py
+      - pyproject.toml
