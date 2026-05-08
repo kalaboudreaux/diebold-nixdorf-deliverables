@@ -6,24 +6,33 @@ st.set_page_config(page_title="Future State Architecture | Diebold Nixdorf", pag
 
 st.markdown("""
 <style>
-    .arch-header {font-size: 2.5rem; font-weight: 700; color: #29B5E8;}
-    .before-box {background: #2d1b1b; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #ff4444; margin: 0.5rem 0;}
-    .after-box {background: #1b2d1b; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4CAF50; margin: 0.5rem 0;}
-    .change-box {background: #1a2332; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #FF9800; margin: 0.5rem 0;}
-    .savings-metric {font-size: 2rem; font-weight: 700; color: #4CAF50;}
-    .mermaid-container {background: #0d1117; padding: 2rem; border-radius: 12px; overflow-x: auto;}
-    .component-tag {display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin: 2px;}
-    .tag-remove {background: #ff444433; color: #ff6b6b;}
-    .tag-keep {background: #4CAF5033; color: #66bb6a;}
-    .tag-add {background: #29B5E833; color: #29B5E8;}
-    .tag-upgrade {background: #FF980033; color: #FFB74D;}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    .stApp {font-family: 'Inter', sans-serif;}
+    .dn-header {background: linear-gradient(135deg, #003366 0%, #004d99 50%, #29B5E8 100%); padding: 2.5rem 2rem; border-radius: 0 0 20px 20px; margin: -1rem -1rem 2rem -1rem; text-align: center;}
+    .dn-title {font-size: 2.4rem; font-weight: 800; color: white; margin: 0;}
+    .dn-subtitle {font-size: 1rem; color: #b3d9ff; margin-top: 0.5rem;}
+    .before-box {background: #fff5f5; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #e74c3c; margin: 0.5rem 0; color: #333;}
+    .after-box {background: #f0fff4; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #27ae60; margin: 0.5rem 0; color: #333;}
+    .change-box {background: #fffbf0; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #f39c12; margin: 0.5rem 0; color: #333;}
+    .section-divider {height: 2px; background: linear-gradient(90deg, #003366, #29B5E8, #003366); margin: 2rem 0; border-radius: 2px; opacity: 0.2;}
+    .engagement-ref {background: #f0f7ff; padding: 1rem 1.5rem; border-radius: 8px; border-left: 3px solid #003366; margin: 0.5rem 0; font-size: 0.9rem; color: #003366;}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="arch-header">Future State Architecture</p>', unsafe_allow_html=True)
-st.markdown("**ATM AI Assist — Transaction Assist Reporting Architecture with Snowflake**")
-st.markdown("*Recommended changes to accelerate value delivery and reduce operational complexity*")
-st.markdown("---")
+st.markdown("""
+<div class="dn-header">
+    <div class="dn-title">Future State Architecture</div>
+    <div class="dn-subtitle">Transaction Assist Reporting — Before & After with Snowflake<br>Based on Kirubel Legasion's architecture design (April 2026)</div>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="engagement-ref">
+📎 <strong>Context:</strong> This architecture was designed in collaboration with Kirubel Legasion (Chief Architect) during our October 2025 – April 2026 engagement. 
+The current state diagram reflects Kiru's Confluence page "Transaction Assist Reporting Architecture with Snowflake." 
+Our recommended future state consolidates the data layer while keeping Grafana for operational monitoring.
+</div>
+""", unsafe_allow_html=True)
 
 view_mode = st.radio("View Mode", ["Before & After Comparison", "Detailed Change Log", "Cost & Capability Analysis"], horizontal=True)
 

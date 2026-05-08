@@ -1,26 +1,36 @@
 import streamlit as st
 import time
 
-st.set_page_config(page_title="Personal Message for Diebold Nixdorf Leadership", page_icon="🎬", layout="wide")
+st.set_page_config(page_title="Stakeholder Briefing | Diebold Nixdorf", page_icon="🎬", layout="wide")
 
 st.markdown("""
 <style>
-    .video-header {font-size: 2.5rem; font-weight: 700; color: #29B5E8; text-align: center;}
-    .personal-greeting {font-size: 1.4rem; color: #e0e0e0; text-align: center; margin-bottom: 2rem;}
-    .slide-container {background: linear-gradient(135deg, #0d1b2e 0%, #1a2744 100%); padding: 3rem; border-radius: 16px; min-height: 400px; display: flex; flex-direction: column; justify-content: center; border: 1px solid #29B5E833;}
-    .slide-title {font-size: 2rem; font-weight: 700; color: #29B5E8; margin-bottom: 1rem;}
-    .slide-content {font-size: 1.1rem; color: #e0e0e0; line-height: 1.8;}
-    .narrator-box {background: #1a1a2e; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #29B5E8; margin-top: 1rem; font-style: italic; color: #b0b0b0;}
-    .role-card {background: linear-gradient(135deg, #162447 0%, #1f4068 100%); padding: 2rem; border-radius: 12px; border: 1px solid #29B5E8; margin: 1rem 0;}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    .stApp {font-family: 'Inter', sans-serif;}
+    .dn-header {background: linear-gradient(135deg, #003366 0%, #004d99 50%, #29B5E8 100%); padding: 2.5rem 2rem; border-radius: 0 0 20px 20px; margin: -1rem -1rem 2rem -1rem; text-align: center;}
+    .dn-title {font-size: 2.4rem; font-weight: 800; color: white; margin: 0;}
+    .dn-subtitle {font-size: 1rem; color: #b3d9ff; margin-top: 0.5rem;}
+    .personal-greeting {font-size: 1.2rem; color: #333; text-align: center; margin-bottom: 2rem;}
+    .slide-container {background: white; padding: 3rem; border-radius: 16px; min-height: 400px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid #29B5E8;}
+    .slide-title {font-size: 1.8rem; font-weight: 700; color: #003366; margin-bottom: 1rem;}
+    .slide-content {font-size: 1.05rem; color: #333; line-height: 1.8;}
+    .narrator-box {background: #f0f7ff; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #003366; margin-top: 1rem; font-style: italic; color: #003366;}
+    .role-card {background: linear-gradient(135deg, #003366 0%, #004d99 100%); padding: 2rem; border-radius: 12px; border: 1px solid #29B5E8; margin: 1rem 0; color: white;}
     .role-name {font-size: 1.5rem; font-weight: 700; color: white;}
-    .role-title {font-size: 0.95rem; color: #29B5E8;}
-    .wiifm {font-size: 1.2rem; color: #4CAF50; font-weight: 600; margin: 1rem 0;}
-    .cta-box {background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%); padding: 2rem; border-radius: 12px; text-align: center; margin: 2rem 0;}
+    .role-title {font-size: 0.95rem; color: #b3d9ff;}
+    .wiifm {font-size: 1.2rem; color: #29B5E8; font-weight: 600; margin: 1rem 0;}
+    .cta-box {background: linear-gradient(135deg, #003366 0%, #29B5E8 100%); padding: 2rem; border-radius: 12px; text-align: center; margin: 2rem 0; color: white;}
+    .engagement-ref {background: #f0f7ff; padding: 1rem 1.5rem; border-radius: 8px; border-left: 3px solid #003366; margin: 0.5rem 0; font-size: 0.9rem; color: #003366;}
+    .section-divider {height: 2px; background: linear-gradient(90deg, #003366, #29B5E8, #003366); margin: 2rem 0; border-radius: 2px; opacity: 0.2;}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="video-header">A Personal Message for Diebold Nixdorf Leadership</p>', unsafe_allow_html=True)
-st.markdown('<p class="personal-greeting">Prepared specifically for Bruce, Tanya, and Michael — from the Snowflake team working with Kirubel</p>', unsafe_allow_html=True)
+st.markdown("""
+<div class="dn-header">
+    <div class="dn-title">A Personal Message for DN Leadership</div>
+    <div class="dn-subtitle">Tailored for Bruce Diesel · Tanya Gill · Michael Engel<br>From the Snowflake team working with Kirubel Legasion</div>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 

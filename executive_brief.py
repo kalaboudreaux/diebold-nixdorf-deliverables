@@ -1,321 +1,359 @@
 import streamlit as st
 import plotly.graph_objects as go
-import plotly.express as px
 import pandas as pd
 
-st.set_page_config(page_title="Snowflake for ATM AI Assist | Diebold Nixdorf", page_icon="❄️", layout="wide")
+st.set_page_config(page_title="Executive Brief | Diebold Nixdorf × Snowflake", page_icon="❄️", layout="wide")
+
+BRAND_CSS = """
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    .stApp {font-family: 'Inter', sans-serif;}
+    .dn-header {background: linear-gradient(135deg, #003366 0%, #004d99 50%, #29B5E8 100%); padding: 3rem 2rem; border-radius: 0 0 20px 20px; margin: -1rem -1rem 2rem -1rem; text-align: center;}
+    .dn-title {font-size: 2.8rem; font-weight: 800; color: white; margin: 0; letter-spacing: -0.5px;}
+    .dn-subtitle {font-size: 1.1rem; color: #b3d9ff; margin-top: 0.5rem; font-weight: 300;}
+    .exec-summary {background: linear-gradient(135deg, #f8fbff 0%, #e8f4fd 100%); padding: 2.5rem; border-radius: 16px; border: 1px solid #29B5E820; margin: 1.5rem 0;}
+    .exec-summary h3 {color: #003366; margin-top: 0;}
+    .exec-summary p {color: #1a1a2e; font-size: 1.05rem; line-height: 1.8;}
+    .value-metric {background: white; padding: 1.5rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-top: 3px solid #29B5E8;}
+    .value-metric h2 {color: #29B5E8; margin: 0; font-size: 2rem;}
+    .value-metric p {color: #666; margin: 0.3rem 0 0 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;}
+    .section-divider {height: 3px; background: linear-gradient(90deg, #003366, #29B5E8, #003366); margin: 2.5rem 0; border-radius: 2px; opacity: 0.3;}
+    .insight-card {background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #29B5E8; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin: 0.8rem 0;}
+    .engagement-ref {background: #f0f7ff; padding: 1rem 1.5rem; border-radius: 8px; border-left: 3px solid #003366; margin: 0.5rem 0; font-size: 0.9rem; color: #003366;}
+    .compare-table th {background: #003366 !important; color: white !important;}
+    .year-section {background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin: 1rem 0; border-top: 4px solid #29B5E8;}
+    .pillar-icon {font-size: 2.5rem; margin-bottom: 0.5rem;}
+    .footer-bar {background: #003366; padding: 1.5rem; border-radius: 12px; text-align: center; color: white; margin-top: 2rem;}
+</style>
+"""
+st.markdown(BRAND_CSS, unsafe_allow_html=True)
 
 st.markdown("""
-<style>
-    .main-header {font-size: 2.8rem; font-weight: 700; color: #29B5E8; margin-bottom: 0;}
-    .sub-header {font-size: 1.3rem; color: #6e7681; margin-top: 0;}
-    .value-card {background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid #29B5E8; margin: 1rem 0;}
-    .metric-big {font-size: 2.5rem; font-weight: 700; color: #29B5E8;}
-    .metric-label {font-size: 0.9rem; color: #a0a0a0; text-transform: uppercase;}
-    .differentiator-box {background: #0d1b2a; padding: 1.5rem; border-radius: 10px; border: 1px solid #29B5E8;}
-    .year-badge {display: inline-block; background: #29B5E8; color: white; padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85rem;}
-    .objection-answer {background: #1a2332; padding: 1.5rem; border-radius: 10px; border-left: 3px solid #4CAF50; margin: 0.5rem 0;}
-    .snowflake-blue {color: #29B5E8;}
-    .highlight-green {color: #4CAF50;}
-    div[data-testid="stExpander"] {border: 1px solid #29B5E8; border-radius: 10px;}
-</style>
+<div class="dn-header">
+    <div class="dn-title">Why Snowflake for ATM AI Assist</div>
+    <div class="dn-subtitle">Executive Education Brief — Prepared for Diebold Nixdorf Leadership<br>Bruce Diesel · Tanya Gill · Michael Engel</div>
+</div>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="main-header">Why Snowflake for ATM AI Assist</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-header">Executive Education Brief — Prepared for Diebold Nixdorf Leadership</p>', unsafe_allow_html=True)
-st.markdown("---")
+st.markdown("""
+<div class="exec-summary">
+<h3>📌 Executive Summary</h3>
+<p>
+<strong>Diebold Nixdorf's Transaction Assist product</strong> — which enables banking customers to connect with remote tellers via ATM — generates rich call data through Zoom, Twilio, and Kafka streams. Today, this data is delivered to banking clients as basic CSV reports and Power BI dashboards. <strong>There is no AI, no real-time analytics, and no competitive differentiation.</strong>
+</p>
+<p>
+<strong>Snowflake transforms Transaction Assist into an AI-powered analytics platform</strong> — enabling real-time sentiment analysis on call transcripts, intelligent call classification, cross-customer benchmarking, and natural language querying. This is a <strong>product differentiator that generates new revenue</strong> for Diebold Nixdorf and creates a competitive moat vs. NCR Atleos and Hyosung.
+</p>
+<p>
+<strong>The pilot is fully scoped and funded.</strong> Kirubel Legasion (Chief Architect) has evaluated the technology over 9 months of engagement with Snowflake. $10K in evaluation credits are approved, a no-cost Professional Services workshop is ready, and 3–5 banking clients are identified for the 8-week pilot. <strong>The only remaining step is leadership alignment to proceed.</strong>
+</p>
+</div>
+""", unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("Data Sources Consolidated", "5+ → 1", "Unified Platform")
+    st.markdown('<div class="value-metric"><h2>$0</h2><p>Pilot Cost to DN</p></div>', unsafe_allow_html=True)
 with col2:
-    st.metric("Insight Latency", "Hours → Seconds", "Real-time AI")
+    st.markdown('<div class="value-metric"><h2>8 Weeks</h2><p>Time to First AI Insight</p></div>', unsafe_allow_html=True)
 with col3:
-    st.metric("Year 3 ACV Potential", "$1.5M–$2.5M+", "Platform Growth")
+    st.markdown('<div class="value-metric"><h2>$1.5M+</h2><p>Year 3 ACV Potential</p></div>', unsafe_allow_html=True)
 with col4:
-    st.metric("Tool Reduction", "60–70%", "Cost Savings")
+    st.markdown('<div class="value-metric"><h2>20+</h2><p>Use Cases Identified</p></div>', unsafe_allow_html=True)
 
-st.markdown("---")
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
-st.markdown("## 🎯 Addressing Your Key Questions")
+st.markdown("## 🎯 Addressing Your Key Concerns")
 
-tab1, tab2 = st.tabs(["**Snowflake ≠ Grafana — Here's the Difference**", "**Why This Should Be a Priority NOW**"])
+tab1, tab2 = st.tabs(["**Snowflake ≠ Grafana**", "**Why This Should Be a Priority NOW**"])
 
 with tab1:
     st.markdown("""
-    ### The Core Distinction
+    ### Different Tools for Different Jobs
     
-    **Grafana** is an **observability visualization tool** — it displays metrics and logs from systems like Prometheus and Loki. 
-    It answers: *"Is the system up? What's the error rate?"*
+    A common question from stakeholders: *"How is Snowflake different from Grafana?"*
     
-    **Snowflake** is a **data cloud platform with built-in AI** — it unifies all your data, enables AI/ML, and powers business decisions. 
-    It answers: *"Why did that ATM fail? What will happen next? How do we serve customers better?"*
+    **The short answer:** Grafana is a dashboard for infrastructure monitoring. Snowflake is a data platform with built-in AI. They serve completely different purposes.
     """)
     
     comparison_data = {
-        "Capability": [
-            "Primary Purpose",
+        "Dimension": [
+            "What it is",
+            "Primary Question it Answers",
             "Data Storage",
-            "AI/ML Built-in",
+            "AI / Machine Learning",
             "Multi-Tenant Data Sharing",
-            "Historical Analytics",
             "Natural Language Queries",
-            "Real-time + Batch Processing",
-            "Governance & Compliance",
-            "Cost at Scale",
-            "Custom App Development"
+            "Security & Governance",
+            "Recommendation"
         ],
         "Grafana": [
-            "Dashboard visualization for ops metrics",
-            "❌ No — relies on Prometheus/Loki",
-            "❌ No",
-            "❌ No",
-            "Limited (retention issues)",
-            "❌ No",
-            "Metrics only (no business data)",
-            "❌ No built-in governance",
-            "Expensive at scale (Loki/Prometheus)",
-            "❌ No"
+            "Observability dashboard tool",
+            '"Is the ATM system healthy right now?"',
+            "None — relies on Prometheus/Loki",
+            "None",
+            "Not supported",
+            "Not supported",
+            "Basic — no data governance",
+            "KEEP for ops monitoring"
         ],
         "Snowflake": [
-            "Unified data platform + AI engine",
-            "✅ Unlimited, scalable cloud storage",
-            "✅ Cortex AI (LLMs, ML, NLP built-in)",
-            "✅ Secure data sharing across tenants",
-            "✅ Unlimited historical depth",
-            "✅ Cortex Analyst (ask questions in English)",
-            "✅ Streaming + batch in one platform",
-            "✅ Row-level security, masking, auditing",
-            "Pay-per-use, scales to zero",
-            "✅ Streamlit apps built-in"
+            "Data Cloud Platform + AI Engine",
+            '"Why did that call fail? What will happen next? How do we serve banking clients better?"',
+            "Unlimited, scalable cloud storage",
+            "Cortex AI — 16 LLMs, ML functions, NLP built-in",
+            "Native — serve 50+ banking clients from one platform",
+            "Cortex Analyst — ask questions in English",
+            "Enterprise-grade: row-level security, masking, PCI/SOC2/HIPAA",
+            "ADD as the data + AI platform"
         ]
     }
     
-    df_compare = pd.DataFrame(comparison_data)
-    st.dataframe(df_compare, use_container_width=True, hide_index=True)
+    st.dataframe(pd.DataFrame(comparison_data), use_container_width=True, hide_index=True)
     
     st.markdown("""
-    > **Bottom Line:** Grafana stays in your stack for operational monitoring. Snowflake sits *underneath* as the platform 
-    > that consolidates your data, powers AI, and delivers business value. They're complementary — not competitive.
-    """)
+    <div class="engagement-ref">
+    📎 <strong>From our engagement:</strong> Kirubel's architecture (which you've seen) shows Grafana receiving webhook alerts from Prometheus/oTel. 
+    Snowflake sits underneath as the intelligence layer — processing Kafka streams, running Cortex AI, and delivering multi-tenant analytics to banking clients. 
+    They are complementary, not competitive.
+    </div>
+    """, unsafe_allow_html=True)
 
 with tab2:
-    st.markdown("""
-    ### Why Snowflake Actually *Reduces* Competing Priorities
-    
-    The biggest drain on your team's time today isn't any single project — it's **managing complexity across fragmented systems**.
-    """)
+    st.markdown("### Snowflake Reduces Competing Priorities — It Doesn't Add One")
     
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown("""
         #### ❌ Today's Priority Tax
-        - Maintaining Oracle DB + SERAS Warehouse + Shared Files
-        - Managing Prometheus/Loki scaling issues
-        - Building custom ETL for each new data flow
-        - Recreating dashboards across Power BI, Grafana, SafeCentral
-        - Manual CSV transfers for ATM balancing
-        - No AI capabilities without months of development
+        - Managing Oracle DB + SERAS Warehouse + Shared File Locations
+        - Building manual CSV reports for each banking client
+        - No AI capabilities → can't differentiate vs. NCR Atleos
+        - Each new client requires custom reporting setup
+        - IBM WatsonX & Microsoft Fabric approaching your teams
         """)
     with col_b:
         st.markdown("""
         #### ✅ With Snowflake (Priorities Consolidated)
-        - **One platform** for all data (streaming + batch)
-        - **Built-in AI** — no separate ML infrastructure
-        - **Streamlit apps** replace fragmented dashboards
-        - **Automated ingestion** replaces manual CSV
-        - **Governance built-in** — no separate tooling
-        - **Team focuses on value**, not infrastructure
+        - **One platform** for all ATM call data (real-time streaming)
+        - **Auto-generated** multi-tenant client dashboards
+        - **Built-in AI** → immediate competitive differentiation
+        - **New clients onboard in hours**, not weeks
+        - **You own the AI stack** → not dependent on IBM
         """)
     
     st.markdown("""
-    > **The ask isn't to add a priority.** It's to *replace 5 existing priorities with 1 platform* 
-    > that delivers more value with less effort.
-    """)
+    <div class="engagement-ref">
+    📎 <strong>From our engagement:</strong> In our April planning sessions with Kirubel, we identified that DN currently delivers only basic CSV + Power BI reports 
+    to banking clients for Transaction Assist. Meanwhile, NCR Atleos is investing in analytics. Snowflake enables DN to leapfrog with AI-powered insights 
+    that no competitor offers today — turning a cost center into a revenue generator.
+    </div>
+    """, unsafe_allow_html=True)
 
-st.markdown("---")
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 st.markdown("## 📈 Value Roadmap: Year 1, 2, 3")
 
-year_tab1, year_tab2, year_tab3 = st.tabs(["**Year 1 — Foundation & Quick Wins**", "**Year 2 — Scale & Differentiation**", "**Year 3 — Market Leadership**"])
+year_tab1, year_tab2, year_tab3 = st.tabs(["**Year 1 — Foundation**", "**Year 2 — Scale**", "**Year 3 — Leadership**"])
 
 with year_tab1:
-    st.markdown('<span class="year-badge">YEAR 1: $350K–$625K ACV</span>', unsafe_allow_html=True)
-    st.markdown("")
+    st.markdown("""
+    <div class="year-section">
+    <h3>Year 1: $250K–$425K ACV | Build the Foundation</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
     with col1:
         st.markdown("""
-        #### Use Cases Delivered
-        | Use Case | Business Value |
-        |----------|---------------|
-        | **ATM AI Assist (Pilot)** | Real-time AI on transaction audio → faster resolution, reduced call center load |
-        | **Transaction Analytics** | Unified view of all ATM transactions across Kafka, Oracle, CSVs |
-        | **Anomaly Detection** | Cortex AI identifies suspicious patterns in real-time |
-        | **Customer Dashboards** | Multi-tenant Streamlit dashboards replace Power BI/Portal |
-        | **Data Consolidation** | Oracle + SERAS + Shared Files → Snowflake |
+        | Use Case | What It Delivers | Champion |
+        |----------|-----------------|----------|
+        | **Transaction Assist — Full Deployment** | AI sentiment analysis, call classification, NL queries, multi-tenant benchmarking for 10–20 banking clients | Kirubel → Michael Engel |
+        | **Supply Chain Demand Planning** | Unify 40K–50K SKUs across 80 countries, ML forecasting | Aamir Reyaz, Sangeeta Doni |
+        | **Finance Data Consolidation** | Replace Alteryx workarounds, consolidate 80-country ERP data | Tyler Wise |
         """)
     with col2:
-        st.markdown("""
-        #### Key Metrics
-        """)
-        st.metric("Insight Speed", "10x faster", "Hours → Minutes")
-        st.metric("Dashboard Tools", "5 → 1", "Consolidated")
-        st.metric("AI Development", "Weeks → Days", "Cortex AI")
+        st.metric("Banking Clients on Platform", "10–20", "Up from 3–5 pilot")
+        st.metric("Forecast Accuracy", "+30–50%", "ML vs. manual")
+        st.metric("Analyst Hours Saved", "100–200/mo", "Eliminated manual ETL")
 
 with year_tab2:
-    st.markdown('<span class="year-badge">YEAR 2: $700K–$1.2M ACV</span>', unsafe_allow_html=True)
-    st.markdown("")
+    st.markdown("""
+    <div class="year-section">
+    <h3>Year 2: $500K–$900K ACV | Scale Intelligence</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
     with col1:
         st.markdown("""
-        #### Use Cases Delivered
-        | Use Case | Business Value |
-        |----------|---------------|
-        | **Predictive Maintenance** | IoT sensor data → predict ATM failures before they happen |
-        | **Cash Management Optimization** | AI-driven cash forecasting across ATM networks |
-        | **Security/Tamper Detection** | Cortex AI on sensor data for real-time threat detection |
-        | **IT Log Analysis** | Consolidate observability data into Snowflake for AI-powered root cause |
-        | **Multi-tenant Benchmarking** | Sell anonymized benchmarking data to banking clients |
-        | **Microsoft Fabric Displacement** | Move Azure analytics workloads to Snowflake |
+        | Use Case | What It Delivers | Champion |
+        |----------|-----------------|----------|
+        | **AI-Powered RFP Tool** | Fine-tuned LLM on RFP history, auto-generation in multiple languages | John Apgar, Sachin Handoo |
+        | **ATM Cash Management** | Predict cash demand, prevent cash-outs, optimize Brinks/Loomis scheduling | Marco (Berlin) |
+        | **Language Translation** | Real-time ATM UI translation, document localization | John Apgar, Pradeep |
+        | **Microsoft Fabric Displacement** | Migrate Azure analytics PoC to Snowflake (superior for AI) | David Champagne |
         """)
     with col2:
-        st.markdown("""
-        #### Key Metrics
-        """)
-        st.metric("ATM Uptime", "+15–25%", "Predictive maintenance")
-        st.metric("Cash Optimization", "$2M+ saved", "Across network")
-        st.metric("New Revenue", "Benchmarking", "Data product")
+        st.metric("RFP Win Rate", "+10–20%", "AI-generated responses")
+        st.metric("Cash Float Savings", "5–10%", "Across ATM network")
+        st.metric("Translation Savings", "$200K–$500K", "Eliminate outsourcing")
 
 with year_tab3:
-    st.markdown('<span class="year-badge">YEAR 3: $1.5M–$2.5M+ ACV</span>', unsafe_allow_html=True)
-    st.markdown("")
+    st.markdown("""
+    <div class="year-section">
+    <h3>Year 3: $1.0M–$1.5M+ ACV | Market Leadership</h3>
+    </div>
+    """, unsafe_allow_html=True)
     
     col1, col2 = st.columns([2, 1])
     with col1:
         st.markdown("""
-        #### Use Cases Delivered
-        | Use Case | Business Value |
-        |----------|---------------|
-        | **Data Product Monetization** | Sell ATM intelligence as a service to banking clients |
-        | **Global Scale** | 80-country deployment on single platform |
-        | **Enterprise Data Platform** | Finance, HR, Supply Chain all on Snowflake |
-        | **AI-Powered RFP Tool** | Cortex AI generates proposals from knowledge base |
-        | **Language Translation** | Real-time multilingual ATM assistance |
-        | **Sign Language Avatars** | AI accessibility features powered by Cortex |
+        | Use Case | What It Delivers | Champion |
+        |----------|-----------------|----------|
+        | **Security & Tamper Detection** | AI camera analytics, skimming detection, loitering alerts | John Apgar, Security Team |
+        | **Accessibility (ASL Avatars)** | Sign language AI for ATM kiosks — first in industry | Product Team |
+        | **Predictive Maintenance (IoT)** | Sensor data ML → predict failures, auto-create ServiceNow tickets | IT/Operations |
+        | **Enterprise Data Platform** | Full Snowflake deployment across Finance, IT, HR | Tyler Wise, Alam Mulla |
+        | **Data Monetization** | Sell anonymized ATM intelligence as a product to banking clients | Michael Engel, CRO Joe |
         """)
     with col2:
-        st.markdown("""
-        #### Key Metrics
-        """)
+        st.metric("Fraud Prevention", "7-figure", "Per banking client")
+        st.metric("ATM Downtime", "-30–50%", "Predictive maintenance")
         st.metric("New Revenue Streams", "3+", "Data products")
-        st.metric("Enterprise Consolidation", "80%", "On Snowflake")
-        st.metric("Competitive Moat", "Unassailable", "AI + Data + Scale")
 
-st.markdown("---")
-st.markdown("## 🚀 What Snowflake Enables That You Can't Do Today")
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.markdown("""
-    ### 🆕 Net-New Capabilities
-    - **Real-time AI inference** on ATM transactions (Cortex AI)
-    - **Natural language queries** — ask questions in English, get answers
-    - **Secure multi-tenant data sharing** — each banking client sees only their data
-    - **AI-powered anomaly detection** without building ML infrastructure
-    - **Data monetization** — sell ATM intelligence as a product
-    """)
-
-with col2:
-    st.markdown("""
-    ### ⬆️ What Gets Better
-    - **Dashboard creation**: Weeks → Hours (Streamlit)
-    - **Data freshness**: Hours → Seconds (Snowpipe Streaming)
-    - **Cross-team collaboration**: Siloed → Unified
-    - **Compliance**: Manual → Automated governance
-    - **Cost**: Pay-per-use vs. always-on infrastructure
-    """)
-
-with col3:
-    st.markdown("""
-    ### 💡 Why You Need It Now
-    - **IBM WatsonX** is approaching your AI teams
-    - **Microsoft Fabric** PoC is underway — Snowflake is superior for AI
-    - **First-mover advantage** in ATM AI monetization
-    - **Technical debt** compounds — every month adds cost
-    - **Pilot is funded** — $10K eval credits + PS workshop ready
-    """)
-
-st.markdown("---")
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 fig_value = go.Figure()
-years = ["Today", "Year 1", "Year 2", "Year 3"]
-snowflake_value = [0, 625, 1200, 2500]
-cost_savings = [0, 150, 400, 800]
-new_revenue = [0, 0, 200, 600]
+phases = ["Pilot<br>(Now)", "Post-Pilot<br>(Q3'26)", "Year 1<br>(FY27)", "Year 2<br>(FY28)", "Year 3<br>(FY29)"]
+acv_low = [0, 30, 250, 500, 1000]
+acv_high = [0, 75, 425, 900, 1500]
 
-fig_value.add_trace(go.Bar(name="Snowflake ACV ($K)", x=years, y=snowflake_value, marker_color="#29B5E8"))
-fig_value.add_trace(go.Bar(name="Cost Savings ($K)", x=years, y=cost_savings, marker_color="#4CAF50"))
-fig_value.add_trace(go.Bar(name="New Revenue Enabled ($K)", x=years, y=new_revenue, marker_color="#FF9800"))
-
-fig_value.update_layout(
-    title="Total Value Creation with Snowflake",
-    barmode="group",
-    template="plotly_dark",
-    height=400,
-    yaxis_title="$ Thousands"
-)
+fig_value.add_trace(go.Bar(name="ACV Low ($K)", x=phases, y=acv_low, marker_color="#003366"))
+fig_value.add_trace(go.Bar(name="ACV High ($K)", x=phases, y=acv_high, marker_color="#29B5E8"))
+fig_value.update_layout(title="Snowflake ACV Growth Trajectory", barmode="group", template="plotly_white", height=350, yaxis_title="$ Thousands", font=dict(family="Inter"))
 st.plotly_chart(fig_value, use_container_width=True)
 
-st.markdown("---")
-st.markdown("## 👥 What's In It For Your Team")
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
+st.markdown("## 🚀 What Snowflake Enables for Transaction Assist")
 
 col1, col2, col3 = st.columns(3)
-
 with col1:
     st.markdown("""
-    ### Bruce Diesel
-    *Director, Product Management*
-    
-    - Ship AI-powered ATM features **faster**
-    - Differentiate DN products with built-in intelligence
-    - Deliver customer-facing analytics as a product feature
-    - Reduce dependency on engineering for dashboards
-    """)
+    <div class="insight-card">
+    <div class="pillar-icon">🧠</div>
+    <h4>AI on Every Call</h4>
+    <ul>
+    <li>Sentiment analysis on call transcripts</li>
+    <li>Intelligent call classification & tagging</li>
+    <li>Anomaly detection (fraud patterns)</li>
+    <li>Call quality scoring</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
-    ### Tanya Gill
-    *Global Director, Security Architecture*
-    
-    - **Unified security posture** across all data
-    - Row-level security, dynamic masking, encryption at rest
-    - Complete audit trail for compliance
-    - AI-powered threat detection on ATM telemetry
-    - Eliminate data sprawl security risks
-    """)
+    <div class="insight-card">
+    <div class="pillar-icon">📊</div>
+    <h4>Analytics as a Product</h4>
+    <ul>
+    <li>Multi-tenant dashboards per banking client</li>
+    <li>Cross-customer benchmarking (anonymized)</li>
+    <li>Natural language queries for bank execs</li>
+    <li>Premium tier pricing → new revenue</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col3:
     st.markdown("""
-    ### Michael Engel
-    *VP Software, Managed Services & R&D*
-    
-    - **Reduce tech debt** — consolidate 5+ data systems
-    - Accelerate R&D with built-in AI (no ML team needed)
-    - Lower infrastructure costs (pay-per-use)
-    - Team focuses on innovation, not maintenance
-    - Managed services become AI-powered
-    """)
+    <div class="insight-card">
+    <div class="pillar-icon">⚡</div>
+    <h4>Real-Time Intelligence</h4>
+    <ul>
+    <li>Sub-second Kafka ingestion via connector</li>
+    <li>Live staffing optimization by volume</li>
+    <li>Real-time alerting on call anomalies</li>
+    <li>Dynamic Tables → always-fresh data</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
-st.markdown("---")
-st.markdown("### Next Step: Activate the Pilot")
-st.info("""
-**The pilot is already funded and scoped.** Snowflake has approved $10K in evaluation credits and a no-cost Professional Services workshop.
-Kirubel Legasion (Chief Architect) is ready to execute. The only thing needed is alignment from leadership to proceed.
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
-**Timeline:** 8 weeks from kickoff to first AI-powered insights on live ATM data.
-""")
+st.markdown("## 📋 Engagement Timeline with Kirubel Legasion")
+st.markdown("""
+<div class="engagement-ref">
+📎 <strong>9 months of technical evaluation</strong> — Kirubel has thoroughly vetted Snowflake's capabilities for Transaction Assist.
+</div>
+""", unsafe_allow_html=True)
 
-st.markdown("---")
-st.caption("Prepared by Snowflake for Diebold Nixdorf | ATM AI Assist Initiative | May 2026")
+timeline_data = pd.DataFrame({
+    "Date": ["July 2025", "Oct 2025", "Jan 2026", "Mar 2026", "Apr 2026", "Apr 17, 2026", "May 2026"],
+    "Milestone": [
+        "Initial discovery — Kiru identifies Snowflake as potential AI platform for Transaction Assist",
+        "Architecture design sessions — Kafka → Snowflake → Cortex AI pipeline mapped",
+        "Use case expansion — 12+ use cases identified across DN business units",
+        "Pilot scoped — 3–5 banking clients, 8-week timeline, $10K credits approved",
+        "SOW drafted — PS workshop funded, partner (Kipi.AI/Hakkoda) engagement planned",
+        "Full roadmap delivered — 20 use cases, $1.5M–$3M+ total opportunity mapped",
+        "Leadership alignment needed — Bruce, Tanya, Michael support required to launch"
+    ],
+    "Status": ["✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "⏳ Pending"]
+})
+st.dataframe(timeline_data, use_container_width=True, hide_index=True)
+
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
+st.markdown("## 👥 What This Means for Your Team")
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.markdown("""
+    <div class="insight-card">
+    <h4>Bruce Diesel</h4>
+    <em>Director, Product Management</em>
+    <hr>
+    <ul>
+    <li>AI becomes a <strong>product feature</strong> that banking clients pay for</li>
+    <li>Competitive differentiation vs. NCR Atleos</li>
+    <li>Ship analytics features 10x faster</li>
+    <li>New revenue stream from premium tier</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+with col2:
+    st.markdown("""
+    <div class="insight-card">
+    <h4>Tanya Gill</h4>
+    <em>Global Director, Security Architecture</em>
+    <hr>
+    <ul>
+    <li><strong>Unified security posture</strong> — one platform to secure</li>
+    <li>PCI-DSS, SOC2, HIPAA, FedRAMP compliant</li>
+    <li>Row-level security for banking client isolation</li>
+    <li>Eliminate CSV file transfer risks</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+with col3:
+    st.markdown("""
+    <div class="insight-card">
+    <h4>Michael Engel</h4>
+    <em>VP Software, Managed Services & R&D</em>
+    <hr>
+    <ul>
+    <li><strong>AI without an AI team</strong> — Cortex AI is a function call</li>
+    <li>Reduce tech debt — consolidate 5+ data systems</li>
+    <li>Your team (Kirubel) is already aligned</li>
+    <li>8-week pilot, zero risk, funded by Snowflake</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("""
+<div class="footer-bar">
+<h3 style="margin: 0;">Next Step: 30-Minute Alignment Call</h3>
+<p style="margin: 0.5rem 0 0 0; opacity: 0.8;">The pilot is scoped, funded, and ready. Kirubel is waiting for the green light.<br>
+Contact: Kala Boudreaux, Snowflake Account Executive</p>
+</div>
+""", unsafe_allow_html=True)
