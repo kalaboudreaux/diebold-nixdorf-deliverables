@@ -101,13 +101,13 @@ with tab_rev:
     
     fig_rev = go.Figure()
     years = ["Year 1", "Year 2", "Year 3"]
-    premium_analytics = [200, 800, 1500]
-    benchmarking = [0, 250, 750]
-    retention = [100, 300, 500]
+    premium_analytics = [200000, 800000, 1500000]
+    benchmarking = [0, 250000, 750000]
+    retention = [100000, 300000, 500000]
     fig_rev.add_trace(go.Bar(name="Premium Analytics Tier", x=years, y=premium_analytics, marker_color="#27ae60"))
     fig_rev.add_trace(go.Bar(name="Benchmarking Data Product", x=years, y=benchmarking, marker_color="#2ecc71"))
     fig_rev.add_trace(go.Bar(name="Retention / Upsell Value", x=years, y=retention, marker_color="#a8e6cf"))
-    fig_rev.update_layout(title="Projected New Revenue ($K)", barmode="stack", template="plotly_white", height=350, font=dict(family="Inter"), yaxis_title="$ Thousands")
+    fig_rev.update_layout(title="Projected New Revenue", barmode="stack", template="plotly_white", height=350, font=dict(family="Inter"), yaxis_title="Dollars ($)", yaxis_tickprefix="$", yaxis_tickformat=",.0f")
     st.plotly_chart(fig_rev, use_container_width=True)
 
 with tab_cost:
@@ -159,11 +159,11 @@ with tab_cost:
     
     fig_cost = go.Figure()
     years_c = ["Year 1", "Year 2", "Year 3"]
-    current_cost = [1500, 1500, 1500]
-    with_snowflake = [1200, 900, 650]
+    current_cost = [1500000, 1500000, 1500000]
+    with_snowflake = [1200000, 900000, 650000]
     fig_cost.add_trace(go.Scatter(x=years_c, y=current_cost, name="Current State (Annual)", line=dict(color="#e74c3c", width=3, dash="dash"), fill="tonexty"))
     fig_cost.add_trace(go.Scatter(x=years_c, y=with_snowflake, name="With Snowflake (Annual)", line=dict(color="#29B5E8", width=3), fill="tozeroy", fillcolor="rgba(41,181,232,0.1)"))
-    fig_cost.update_layout(title="Total Data Infrastructure Cost ($K/Year)", template="plotly_white", height=300, yaxis_title="$ Thousands", font=dict(family="Inter"))
+    fig_cost.update_layout(title="Total Data Infrastructure Cost (Annual)", template="plotly_white", height=300, yaxis_title="Dollars ($)", yaxis_tickprefix="$", yaxis_tickformat=",.0f", font=dict(family="Inter"))
     st.plotly_chart(fig_cost, use_container_width=True)
 
 with tab_risk:
@@ -281,25 +281,26 @@ st.markdown("## 📊 Three-Year Value Summary")
 
 fig_summary = go.Figure()
 years = ["Year 1", "Year 2", "Year 3"]
-revenue = [300, 1300, 2750]
-savings = [300, 600, 850]
-risk_avoided = [200, 500, 1000]
+revenue = [300000, 1300000, 2750000]
+savings = [300000, 600000, 850000]
+risk_avoided = [200000, 500000, 1000000]
 
-fig_summary.add_trace(go.Bar(name="New Revenue ($K)", x=years, y=revenue, marker_color="#27ae60"))
-fig_summary.add_trace(go.Bar(name="Cost Savings ($K)", x=years, y=savings, marker_color="#29B5E8"))
-fig_summary.add_trace(go.Bar(name="Risk Mitigated ($K)", x=years, y=risk_avoided, marker_color="#e74c3c", marker_opacity=0.7))
+fig_summary.add_trace(go.Bar(name="New Revenue", x=years, y=revenue, marker_color="#27ae60"))
+fig_summary.add_trace(go.Bar(name="Cost Savings", x=years, y=savings, marker_color="#29B5E8"))
+fig_summary.add_trace(go.Bar(name="Risk Mitigated", x=years, y=risk_avoided, marker_color="#e74c3c", marker_opacity=0.7))
 
 fig_summary.add_trace(go.Scatter(
     x=years, y=[r+s+ra for r, s, ra in zip(revenue, savings, risk_avoided)],
-    name="Total Value ($K)", line=dict(color="#003366", width=3), mode="lines+markers+text",
-    text=[f"${r+s+ra:,}K" for r, s, ra in zip(revenue, savings, risk_avoided)],
+    name="Total Value", line=dict(color="#003366", width=3), mode="lines+markers+text",
+    text=[f"${(r+s+ra)/1000000:.1f}M" for r, s, ra in zip(revenue, savings, risk_avoided)],
     textposition="top center", textfont=dict(size=14, color="#003366")
 ))
 
 fig_summary.update_layout(
     title="Total Business Value Created with Snowflake",
     barmode="stack", template="plotly_white", height=400,
-    yaxis_title="$ Thousands", font=dict(family="Inter"),
+    yaxis_title="Dollars ($)", yaxis_tickprefix="$", yaxis_tickformat=",.0f",
+    font=dict(family="Inter"),
     legend=dict(orientation="h", yanchor="bottom", y=-0.2)
 )
 st.plotly_chart(fig_summary, use_container_width=True)
