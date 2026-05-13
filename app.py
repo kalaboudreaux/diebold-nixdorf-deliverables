@@ -9,7 +9,7 @@ pages = {
         st.Page("business_value.py", title="Business Value Analysis", icon="💰"),
         st.Page("architecture.py", title="Future State Architecture", icon="🏗️"),
         st.Page("personal_video.py", title="Stakeholder Briefing", icon="🎬"),
-        st.Page("interactive_demo.py", title="Interactive Demo", icon="🚀"),
+        st.Page("interactive_demo.py", title="Art of Possible Demo", icon="🚀"),
     ]
 }
 
