@@ -65,7 +65,7 @@ st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 st.markdown("## 🎯 Addressing Your Key Concerns")
 
-tab1, tab2 = st.tabs(["**Snowflake ≠ Grafana**", "**Why This Should Be a Priority NOW**"])
+tab2, tab1 = st.tabs(["**Why This Should Be a Priority NOW**", "**Snowflake vs. Grafana (Reference)**"])
 
 with tab1:
     st.markdown("""
@@ -282,37 +282,13 @@ with col3:
 
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
-st.markdown("## 📋 Engagement Timeline with Kirubel Legasion")
-st.markdown("""
-<div class="engagement-ref">
-📎 <strong>9 months of technical evaluation</strong> — Kirubel has thoroughly vetted Snowflake's capabilities for Transaction Assist.
-</div>
-""", unsafe_allow_html=True)
-
-timeline_data = pd.DataFrame({
-    "Date": ["July 2025", "Oct 2025", "Jan 2026", "Mar 2026", "Apr 2026", "Apr 17, 2026", "May 2026"],
-    "Milestone": [
-        "Initial discovery — Kiru identifies Snowflake as potential AI platform for Transaction Assist",
-        "Architecture design sessions — Kafka → Snowflake → Cortex AI pipeline mapped",
-        "Use case expansion — 12+ use cases identified across DN business units",
-        "Pilot scoped — 3–5 banking clients, 8-week timeline, $10K credits approved",
-        "SOW drafted — PS workshop funded, partner (Kipi.AI/Hakkoda) engagement planned",
-        "Full roadmap delivered — 20 use cases, $1.5M–$3M+ total opportunity mapped",
-        "Leadership alignment needed — Bruce, Tanya, Michael support required to launch"
-    ],
-    "Status": ["✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "⏳ Pending"]
-})
-st.dataframe(timeline_data, use_container_width=True, hide_index=True)
-
-st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
-
 st.markdown("## 👥 What This Means for Your Team")
 col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown("""
     <div class="insight-card">
-    <h4>Bruce Diesel</h4>
-    <em>Director, Product Management</em>
+    <h4>Director, Product Management</h4>
+    <em>Branch and Cash Automation</em>
     <hr>
     <ul>
     <li>AI becomes a <strong>product feature</strong> that banking clients pay for</li>
@@ -325,8 +301,8 @@ with col1:
 with col2:
     st.markdown("""
     <div class="insight-card">
-    <h4>Tanya Gill</h4>
-    <em>Global Director, Security Architecture</em>
+    <h4>Global Director, Security Architecture</h4>
+    <em>Security Architecture and Engineering</em>
     <hr>
     <ul>
     <li><strong>Unified security posture</strong> — one platform to secure</li>
@@ -339,25 +315,19 @@ with col2:
 with col3:
     st.markdown("""
     <div class="insight-card">
-    <h4>Michael Engel</h4>
-    <em>VP Software, Managed Services & R&D</em>
+    <h4>VP Software, Managed Services & R&D</h4>
+    <em>Software, Managed Services and R&D</em>
     <hr>
     <ul>
     <li><strong>AI without an AI team</strong> — Cortex AI is a function call</li>
     <li>Reduce tech debt — consolidate 5+ data systems</li>
-    <li>Your team (Kirubel) is already aligned</li>
+    <li>Engineering team is already aligned and ready</li>
     <li>8-week pilot, zero risk, funded by Snowflake</li>
     </ul>
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="footer-bar">
-<h3 style="margin: 0;">Next Step: 30-Minute Alignment Call</h3>
-<p style="margin: 0.5rem 0 0 0; opacity: 0.8;">The pilot is scoped, funded, and ready. Kirubel is waiting for the green light.<br>
-Contact: Kala Boudreaux, Snowflake Account Executive</p>
-</div>
-""", unsafe_allow_html=True)
+
 
 render_section_notes("exec_brief_summary", "Executive Summary")
 render_section_notes("exec_brief_grafana", "Snowflake vs Grafana")
