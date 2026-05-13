@@ -1,6 +1,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
+from notes_utils import render_section_notes
 
 st.set_page_config(page_title="Executive Brief | Diebold Nixdorf × Snowflake", page_icon="❄️", layout="wide")
 
@@ -357,3 +358,9 @@ st.markdown("""
 Contact: Kala Boudreaux, Snowflake Account Executive</p>
 </div>
 """, unsafe_allow_html=True)
+
+render_section_notes("exec_brief_summary", "Executive Summary")
+render_section_notes("exec_brief_grafana", "Snowflake vs Grafana")
+render_section_notes("exec_brief_roadmap", "Value Roadmap (Year 1/2/3)")
+render_section_notes("exec_brief_stakeholders", "Stakeholder Impact")
+render_section_notes("exec_brief_general", "General Notes — Executive Brief")

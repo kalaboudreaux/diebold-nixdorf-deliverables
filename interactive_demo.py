@@ -6,6 +6,7 @@ import numpy as np
 from datetime import datetime, timedelta
 import random
 import time
+from notes_utils import render_section_notes
 
 st.set_page_config(page_title="ATM Audio Intelligence | Snowflake Demo", page_icon="❄️", layout="wide")
 
@@ -379,3 +380,7 @@ st.markdown("""
     <p style="margin: 1rem 0 0 0; opacity: 0.7; font-size: 0.9rem;">Architecture: Kafka (Zoom/Twilio) → Snowflake Kafka Connector → Dynamic Tables → Cortex AI → Streamlit/Power BI</p>
 </div>
 """, unsafe_allow_html=True)
+
+render_section_notes("demo_call_analytics", "Call Analytics Dashboard")
+render_section_notes("demo_cortex_ai", "Cortex AI Insights")
+render_section_notes("demo_general", "General Notes — Interactive Demo")

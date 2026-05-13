@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from notes_utils import render_section_notes
 
 st.set_page_config(page_title="Pilot Evaluation Plan | Diebold Nixdorf × Snowflake", page_icon="❄️", layout="wide")
 
@@ -337,3 +338,9 @@ st.markdown("""
 Technical Champion: Kirubel Legasion, Chief Architect</p>
 </div>
 """, unsafe_allow_html=True)
+
+render_section_notes("pilot_prep", "Pre-Work & Requirements")
+render_section_notes("pilot_timeline", "Timeline & Milestones")
+render_section_notes("pilot_actions", "Action Plan & Assignments")
+render_section_notes("pilot_success", "Success Criteria & Move-Forward Plan")
+render_section_notes("pilot_general", "General Notes — Pilot Evaluation")

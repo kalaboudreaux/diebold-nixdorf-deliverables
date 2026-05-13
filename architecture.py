@@ -1,6 +1,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
+from notes_utils import render_section_notes
 
 st.set_page_config(page_title="Future State Architecture | Diebold Nixdorf", page_icon="🏗️", layout="wide")
 
@@ -386,3 +387,7 @@ Snowflake is the platform that makes your data *intelligent* — AI, analytics, 
 
 st.markdown("---")
 st.caption("Architecture Recommendation | Prepared by Snowflake for Diebold Nixdorf | May 2026")
+
+render_section_notes("arch_before_after", "Before & After Architecture")
+render_section_notes("arch_changes", "Change Log & Cost Analysis")
+render_section_notes("arch_general", "General Notes — Architecture")

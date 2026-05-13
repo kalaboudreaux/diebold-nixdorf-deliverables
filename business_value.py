@@ -1,6 +1,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
+from notes_utils import render_section_notes
 
 st.set_page_config(page_title="Business Value Analysis | Diebold Nixdorf × Snowflake", page_icon="❄️", layout="wide")
 
@@ -318,3 +319,9 @@ st.markdown("""
 The question isn't whether DN can afford to invest in Snowflake. It's whether DN can afford not to.</p>
 </div>
 """, unsafe_allow_html=True)
+
+render_section_notes("bv_revenue", "Revenue Impact")
+render_section_notes("bv_cost", "Cost Savings")
+render_section_notes("bv_risk", "Risk Mitigation")
+render_section_notes("bv_outcomes", "Business Outcomes")
+render_section_notes("bv_general", "General Notes — Business Value Analysis")

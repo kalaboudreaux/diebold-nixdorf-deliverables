@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from notes_utils import render_section_notes
 
 st.set_page_config(page_title="Stakeholder Briefing | Diebold Nixdorf", page_icon="🎬", layout="wide")
 
@@ -300,3 +301,8 @@ elif stakeholder == "All Stakeholders — Closing & Next Steps":
 
 st.markdown("---")
 st.caption("Personal briefing prepared by Snowflake for Diebold Nixdorf Leadership | May 2026")
+
+render_section_notes("video_bruce", "Bruce Diesel Messaging")
+render_section_notes("video_tanya", "Tanya Gill Messaging")
+render_section_notes("video_michael", "Michael Engel Messaging")
+render_section_notes("video_general", "General Notes — Stakeholder Briefing")
