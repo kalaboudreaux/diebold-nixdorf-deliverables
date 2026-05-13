@@ -45,6 +45,142 @@ with col4:
 
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
+st.markdown("## 🔎 What We're Solving For")
+st.markdown("""
+<div class="phase-card">
+<p style="color:#333; font-size: 1.05rem; line-height: 1.8;">
+Diebold Nixdorf's <strong>Transaction Assist</strong> product connects banking consumers with remote tellers via ATM using Zoom and Twilio. 
+Every call generates rich metadata — call duration, resolution, customer interaction data — streamed through Kafka as small JSON objects (~5KB each).
+</p>
+<p style="color:#333; font-size: 1.05rem; line-height: 1.8;">
+<strong>Today, this data is wasted.</strong> Banking clients receive basic CSV exports and static Power BI dashboards — volume counts, 
+average handle times, and nothing more. There is no AI, no real-time analytics, no sentiment analysis, no anomaly detection, 
+and no way for banking clients to ask questions about their own data.
+</p>
+<p style="color:#333; font-size: 1.05rem; line-height: 1.8;">
+<strong>The problem:</strong> Transaction Assist delivers a commodity reporting experience while sitting on a goldmine of untapped intelligence. 
+Banking clients are underserved, Diebold Nixdorf has no analytics differentiation vs. NCR Atleos or Hyosung, and the product 
+cannot command premium pricing.
+</p>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
+st.markdown("## 💡 Why We're Solving For It")
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.markdown("""
+    <div class="phase-card">
+    <h4>🏦 For Banking Clients</h4>
+    <ul style="color:#333;">
+    <li>Banks are <strong>asking for better analytics</strong> from their ATM vendors — not just raw call data</li>
+    <li>Fraud and anomaly detection on ATM transactions is a <strong>top security priority</strong> for every financial institution</li>
+    <li>Self-service analytics and benchmarking are <strong>table stakes</strong> in modern SaaS products</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+with col2:
+    st.markdown("""
+    <div class="phase-card">
+    <h4>⚔️ For Competitive Position</h4>
+    <ul style="color:#333;">
+    <li><strong>NCR Atleos</strong> is investing in analytics capabilities — the window to lead is closing</li>
+    <li><strong>IBM WatsonX</strong> is actively approaching DN's AI teams with competing platform proposals</li>
+    <li><strong>Microsoft Fabric</strong> PoC is already underway internally — multiple platforms being evaluated</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+with col3:
+    st.markdown("""
+    <div class="phase-card">
+    <h4>📈 For DN's Business</h4>
+    <ul style="color:#333;">
+    <li>Transform Transaction Assist from a <strong>cost center into a revenue-generating product</strong></li>
+    <li>Create <strong>new recurring revenue streams</strong> through premium analytics tiers and data products</li>
+    <li>Increase <strong>client stickiness</strong> — banks that receive AI-powered insights are far harder to churn</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
+st.markdown("## ❄️ Why Snowflake")
+st.markdown("""
+<div class="phase-card">
+<table style="width: 100%; border-collapse: collapse; color: #333;">
+<tr style="border-bottom: 2px solid #29B5E8;">
+    <th style="padding: 10px; text-align: left; color: #003366;">Requirement</th>
+    <th style="padding: 10px; text-align: left; color: #003366;">Why Snowflake Is the Right Fit</th>
+</tr>
+<tr style="border-bottom: 1px solid #e0e0e0;">
+    <td style="padding: 10px;"><strong>Real-time streaming ingestion</strong></td>
+    <td style="padding: 10px;">Native Kafka Connector — sub-second ingestion of call data from Zoom/Twilio streams. No middleware required.</td>
+</tr>
+<tr style="border-bottom: 1px solid #e0e0e0;">
+    <td style="padding: 10px;"><strong>Built-in AI / ML</strong></td>
+    <td style="padding: 10px;">Cortex AI provides sentiment analysis, call classification, anomaly detection, and NLP — all callable via SQL. No separate ML infrastructure or team needed.</td>
+</tr>
+<tr style="border-bottom: 1px solid #e0e0e0;">
+    <td style="padding: 10px;"><strong>Multi-tenant data sharing</strong></td>
+    <td style="padding: 10px;">Native Secure Data Sharing with row-level security — serve 50+ banking clients from one platform with zero data leakage. Purpose-built for SaaS.</td>
+</tr>
+<tr style="border-bottom: 1px solid #e0e0e0;">
+    <td style="padding: 10px;"><strong>Natural language queries</strong></td>
+    <td style="padding: 10px;">Cortex Analyst lets banking execs ask questions in plain English — "show me all calls over 5 minutes this week" — no SQL required.</td>
+</tr>
+<tr style="border-bottom: 1px solid #e0e0e0;">
+    <td style="padding: 10px;"><strong>Enterprise security & compliance</strong></td>
+    <td style="padding: 10px;">PCI-DSS, SOC2 Type II, HIPAA, FedRAMP. Dynamic data masking, encryption at rest + in transit, complete audit trail.</td>
+</tr>
+<tr style="border-bottom: 1px solid #e0e0e0;">
+    <td style="padding: 10px;"><strong>Runs on Azure</strong></td>
+    <td style="padding: 10px;">DN is Azure-primary. Snowflake runs natively on Azure — no cloud migration required. Complements existing infrastructure.</td>
+</tr>
+<tr>
+    <td style="padding: 10px;"><strong>Pay-per-use pricing</strong></td>
+    <td style="padding: 10px;">Consumption-based model — scales to zero when not in use, scales massively during peak. No upfront infrastructure investment.</td>
+</tr>
+</table>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
+st.markdown("## 🚀 Impact with Snowflake")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("""
+    <div class="success-card">
+    <h4 style="color: #27ae60; margin-top: 0;">For Transaction Assist (Immediate)</h4>
+    <ul style="color: #333;">
+    <li><strong>Real-time AI on every call</strong> — sentiment scoring, classification, and topic detection happen automatically as calls stream in</li>
+    <li><strong>Banking client dashboards in hours, not weeks</strong> — multi-tenant Streamlit apps replace manual CSV + Power BI workflows</li>
+    <li><strong>Fraud & anomaly detection</strong> — identify suspicious transaction patterns (rapid transfers, card skimming signals) before damage is done</li>
+    <li><strong>Teller coaching at scale</strong> — AI scores every call and surfaces coaching opportunities, replacing random manual reviews</li>
+    <li><strong>Cross-client benchmarking</strong> — anonymized industry benchmarks become a sellable data product no competitor offers</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div class="phase-card" style="border-top-color: #003366;">
+    <h4 style="color: #003366; margin-top: 0;">For Diebold Nixdorf (Strategic)</h4>
+    <ul style="color: #333;">
+    <li><strong>New revenue stream</strong> — premium analytics tier sold to banking clients creates recurring revenue that doesn't exist today</li>
+    <li><strong>Competitive moat</strong> — first ATM company to offer AI-powered call analytics. NCR Atleos and Hyosung can't match this today</li>
+    <li><strong>Client retention</strong> — banks receiving AI-driven insights have significantly higher switching costs, protecting DN's $2.5B services business</li>
+    <li><strong>Platform for 20+ use cases</strong> — pilot proves the architecture for supply chain, RFP automation, cash management, predictive maintenance, and more</li>
+    <li><strong>Speed to innovation</strong> — new AI features deployed in days instead of quarters. Product team ships faster with less engineering dependency</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
+
 st.markdown("## 📋 What's Needed to Get Started")
 st.markdown("*Pre-work that must be completed before or during Week 1 of the pilot.*")
 
