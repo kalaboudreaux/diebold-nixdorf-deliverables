@@ -57,7 +57,7 @@ with col1:
 with col2:
     st.markdown('<div class="value-metric"><h2>8 Weeks</h2><p>Time to First AI Insight</p></div>', unsafe_allow_html=True)
 with col3:
-    st.markdown('<div class="value-metric"><h2>$1.5M+</h2><p>Year 3 ACV Potential</p></div>', unsafe_allow_html=True)
+    st.markdown('<div class="value-metric"><h2>20+</h2><p>Use Cases Identified</p></div>', unsafe_allow_html=True)
 with col4:
     st.markdown('<div class="value-metric"><h2>20+</h2><p>Use Cases Identified</p></div>', unsafe_allow_html=True)
 
@@ -158,7 +158,7 @@ year_tab1, year_tab2, year_tab3 = st.tabs(["**Year 1 — Foundation**", "**Year 
 with year_tab1:
     st.markdown("""
     <div class="year-section">
-    <h3>Year 1: $250K–$425K ACV | Build the Foundation</h3>
+    <h3>Year 1: Build the Foundation</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -179,7 +179,7 @@ with year_tab1:
 with year_tab2:
     st.markdown("""
     <div class="year-section">
-    <h3>Year 2: $500K–$900K ACV | Scale Intelligence</h3>
+    <h3>Year 2: Scale Intelligence</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -201,7 +201,7 @@ with year_tab2:
 with year_tab3:
     st.markdown("""
     <div class="year-section">
-    <h3>Year 3: $1.0M–$1.5M+ ACV | Market Leadership</h3>
+    <h3>Year 3: Market Leadership</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -224,13 +224,13 @@ with year_tab3:
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 fig_value = go.Figure()
-phases = ["Pilot<br>(Now)", "Post-Pilot<br>(Q3'26)", "Year 1<br>(FY27)", "Year 2<br>(FY28)", "Year 3<br>(FY29)"]
-acv_low = [0, 30, 250, 500, 1000]
-acv_high = [0, 75, 425, 900, 1500]
+phases = ["Pilot<br>(Now)", "Year 1<br>(FY27)", "Year 2<br>(FY28)", "Year 3<br>(FY29)"]
+use_cases = [1, 3, 8, 20]
+banking_clients = [5, 20, 35, 50]
 
-fig_value.add_trace(go.Bar(name="ACV Low ($K)", x=phases, y=acv_low, marker_color="#003366"))
-fig_value.add_trace(go.Bar(name="ACV High ($K)", x=phases, y=acv_high, marker_color="#29B5E8"))
-fig_value.update_layout(title="Snowflake ACV Growth Trajectory", barmode="group", template="plotly_white", height=350, yaxis_title="$ Thousands", font=dict(family="Inter"))
+fig_value.add_trace(go.Bar(name="Use Cases Deployed", x=phases, y=use_cases, marker_color="#003366"))
+fig_value.add_trace(go.Bar(name="Banking Clients on Platform", x=phases, y=banking_clients, marker_color="#29B5E8"))
+fig_value.update_layout(title="Platform Growth Trajectory", barmode="group", template="plotly_white", height=350, yaxis_title="Count", font=dict(family="Inter"))
 st.plotly_chart(fig_value, use_container_width=True)
 
 st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)

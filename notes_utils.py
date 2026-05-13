@@ -50,7 +50,7 @@ def render_section_notes(section_id, section_label="this section"):
             with col_author:
                 author = st.text_input("Your name", value="Kala", key=f"author_{section_id}")
             with col_text:
-                new_note = st.text_area("Add a note, edit suggestion, or comment", key=f"note_{section_id}", height=80, placeholder="e.g., 'Update the ACV numbers to reflect latest finance review...'")
+                new_note = st.text_area("Add a note, edit suggestion, or comment", key=f"note_{section_id}", height=80, placeholder="e.g., 'Update the numbers to reflect latest finance review...'")
             submitted = st.form_submit_button("💾 Save Note")
             if submitted and new_note.strip():
                 entry = {

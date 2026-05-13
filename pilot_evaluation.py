@@ -301,7 +301,7 @@ move_forward = pd.DataFrame({
     "Description": [
         "Pilot results report delivered. Executive presentation to Bruce, Tanya, Michael, Kirubel.",
         "Stakeholders review results vs. success criteria. Decision: proceed to commercial or stop.",
-        "Snowflake delivers enterprise pricing proposal. Scope: Transaction Assist (10–20 banking clients) + Supply Chain. Est. Year 1 ACV: $250K–$425K.",
+        "Snowflake delivers enterprise pricing proposal. Scope: Transaction Assist (10–20 banking clients) + Supply Chain.",
         "DN procurement and legal review. Snowflake provides PCI/SOC2 documentation, DPA, security questionnaire responses.",
         "Enterprise agreement executed. Production Snowflake account provisioned. Anblicks engaged for production build.",
         "Migrate pilot environment to production. Onboard first 10 banking clients. Go-live with AI-powered analytics.",
