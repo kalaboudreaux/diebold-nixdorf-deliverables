@@ -69,7 +69,7 @@ st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
 
 st.markdown("## 💡 Why We're Solving For It")
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
     <div class="phase-card">
@@ -82,17 +82,6 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 with col2:
-    st.markdown("""
-    <div class="phase-card">
-    <h4>⚔️ For Competitive Position</h4>
-    <ul style="color:#333;">
-    <li><strong>NCR Atleos</strong> is investing in analytics capabilities — the window to lead is closing</li>
-    <li><strong>IBM WatsonX</strong> is actively approaching DN's AI teams with competing platform proposals</li>
-    <li><strong>Microsoft Fabric</strong> PoC is already underway internally — multiple platforms being evaluated</li>
-    </ul>
-    </div>
-    """, unsafe_allow_html=True)
-with col3:
     st.markdown("""
     <div class="phase-card">
     <h4>📈 For DN's Business</h4>
